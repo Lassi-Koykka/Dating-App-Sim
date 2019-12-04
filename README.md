@@ -1,4 +1,4 @@
-# "Dating app simulator" a game made in winforms
+# "Dating app simulator" a game made in winforms ![logo](https://github.com/Lassi-Koykka/Dating-App-Sim/blob/master/Dating-App-Sim/WindowsFormsApp1/Properties/Dating%20sim%20logo.png "Logo")
 WinForm project for a school course. 
 A satirical game about modern dating apps and the culture surrounding them.
 
