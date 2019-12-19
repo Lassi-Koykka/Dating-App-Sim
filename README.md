@@ -1,8 +1,6 @@
 # "Dating app simulator" a game made in winforms
 WinForm project for a school course. 
 A satirical game about modern dating apps and the culture surrounding them.
-<img src="https://github.com/Lassi-Koykka/Dating-App-Sim/blob/master/Dating-App-Sim/WindowsFormsApp1/Properties/Dating%20sim%20logo.png" height=120 width=120/>
-
 
 ## Idea
 - An idle game, similiar to "Cookie clicker"
