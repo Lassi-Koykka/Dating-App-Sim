@@ -35,7 +35,9 @@
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.dragPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.dragPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMinimize
@@ -76,8 +78,8 @@
             // 
             // picLogo
             // 
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(-2, -3);
+            this.picLogo.Image = global::WindowsFormsApp1.Properties.Resources.Dating_sim_logo;
+            this.picLogo.Location = new System.Drawing.Point(49, 49);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(123, 129);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -87,6 +89,7 @@
             // btnPlay
             // 
             this.btnPlay.BackColor = System.Drawing.Color.Black;
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnPlay.Font = new System.Drawing.Font("Noto Mono", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.ForeColor = System.Drawing.Color.White;
             this.btnPlay.Location = new System.Drawing.Point(29, 177);
@@ -122,6 +125,20 @@
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
             // 
+            // dragPanel
+            // 
+            this.dragPanel.BackColor = System.Drawing.Color.Transparent;
+            this.dragPanel.Controls.Add(this.btnMinimize);
+            this.dragPanel.Controls.Add(this.btnExit);
+            this.dragPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dragPanel.Location = new System.Drawing.Point(0, 0);
+            this.dragPanel.Name = "dragPanel";
+            this.dragPanel.Size = new System.Drawing.Size(231, 55);
+            this.dragPanel.TabIndex = 11;
+            this.dragPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseDown);
+            this.dragPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseMove);
+            this.dragPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseUp);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,13 +148,14 @@
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnPlay);
+            this.Controls.Add(this.dragPanel);
             this.Controls.Add(this.picLogo);
-            this.Controls.Add(this.btnMinimize);
-            this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.dragPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -150,5 +168,6 @@
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Panel dragPanel;
     }
 }

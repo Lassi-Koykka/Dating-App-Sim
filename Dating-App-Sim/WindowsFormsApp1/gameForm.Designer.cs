@@ -35,11 +35,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.dragPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.dragPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.Maroon;
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnExit.FlatAppearance.BorderSize = 2;
@@ -54,9 +57,11 @@
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnMaximize
             // 
+            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximize.BackColor = System.Drawing.Color.Black;
             this.btnMaximize.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnMaximize.FlatAppearance.BorderSize = 2;
@@ -71,9 +76,11 @@
             this.btnMaximize.TabIndex = 1;
             this.btnMaximize.Text = "■";
             this.btnMaximize.UseVisualStyleBackColor = false;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
             // 
             // btnMinimize
             // 
+            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimize.BackColor = System.Drawing.Color.Black;
             this.btnMinimize.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnMinimize.FlatAppearance.BorderSize = 2;
@@ -88,6 +95,7 @@
             this.btnMinimize.TabIndex = 2;
             this.btnMinimize.Text = "_";
             this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // label1
             // 
@@ -111,7 +119,7 @@
             // 
             // picLogo
             // 
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
+            this.picLogo.Image = global::WindowsFormsApp1.Properties.Resources.Dating_sim_logo;
             this.picLogo.Location = new System.Drawing.Point(-14, -5);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(65, 61);
@@ -119,25 +127,39 @@
             this.picLogo.TabIndex = 5;
             this.picLogo.TabStop = false;
             // 
+            // dragPanel
+            // 
+            this.dragPanel.Controls.Add(this.picLogo);
+            this.dragPanel.Controls.Add(this.label2);
+            this.dragPanel.Controls.Add(this.label1);
+            this.dragPanel.Controls.Add(this.btnMinimize);
+            this.dragPanel.Controls.Add(this.btnMaximize);
+            this.dragPanel.Controls.Add(this.btnExit);
+            this.dragPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dragPanel.Location = new System.Drawing.Point(0, 0);
+            this.dragPanel.Name = "dragPanel";
+            this.dragPanel.Size = new System.Drawing.Size(455, 58);
+            this.dragPanel.TabIndex = 6;
+            this.dragPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseDown);
+            this.dragPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseMove);
+            this.dragPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseUp);
+            // 
             // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(455, 508);
-            this.Controls.Add(this.picLogo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnMinimize);
-            this.Controls.Add(this.btnMaximize);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.dragPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "gameForm";
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.dragPanel.ResumeLayout(false);
+            this.dragPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -149,6 +171,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Panel dragPanel;
     }
 }
 

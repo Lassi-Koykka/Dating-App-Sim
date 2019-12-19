@@ -74,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +88,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dating sim logo.png" />
+    <EmbeddedResource Include="Pics\Profile Template v3-1%281%29.png" />
+    <EmbeddedResource Include="Pics\Profile Template v3-1.png%281%29.png" />
+    <EmbeddedResource Include="Pics\Profile Template v3-1.png%282%29.png" />
+    <EmbeddedResource Include="Pics\Profile Template v3-1.png%283%29.png" />
+    <EmbeddedResource Include="Pics\Profile Template v3-1.png-1.png" />
+    <EmbeddedResource Include="Pics\Profile Template v3-1.png-2.png" />
+    <EmbeddedResource Include="Pics\Profile Template v3-1.png.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
