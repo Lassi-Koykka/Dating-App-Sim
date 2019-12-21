@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
+            this.statusScore = new System.Windows.Forms.StatusStrip();
+            this.lblPreviousBest = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblCurrentScore = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -36,9 +39,32 @@
             this.label2 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.dragPanel = new System.Windows.Forms.Panel();
+            this.statusScore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.dragPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // statusScore
+            // 
+            this.statusScore.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblPreviousBest,
+            this.lblCurrentScore});
+            this.statusScore.Location = new System.Drawing.Point(0, 486);
+            this.statusScore.Name = "statusScore";
+            this.statusScore.Size = new System.Drawing.Size(455, 22);
+            this.statusScore.TabIndex = 7;
+            this.statusScore.Text = "statusStrip1";
+            // 
+            // lblPreviousBest
+            // 
+            this.lblPreviousBest.Name = "lblPreviousBest";
+            this.lblPreviousBest.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lblCurrentScore
+            // 
+            this.lblCurrentScore.Name = "lblCurrentScore";
+            this.lblCurrentScore.Size = new System.Drawing.Size(118, 17);
+            this.lblCurrentScore.Text = "toolStripStatusLabel1";
             // 
             // btnExit
             // 
@@ -106,6 +132,9 @@
             this.label1.Size = new System.Drawing.Size(164, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "Dating App Sim";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseMove);
+            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseUp);
             // 
             // label2
             // 
@@ -116,6 +145,9 @@
             this.label2.Size = new System.Drawing.Size(161, 14);
             this.label2.TabIndex = 4;
             this.label2.Text = "A game by Lassi Köykkä";
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseDown);
+            this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseMove);
+            this.label2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseUp);
             // 
             // picLogo
             // 
@@ -126,6 +158,9 @@
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 5;
             this.picLogo.TabStop = false;
+            this.picLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseDown);
+            this.picLogo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseMove);
+            this.picLogo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseUp);
             // 
             // dragPanel
             // 
@@ -150,21 +185,27 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(455, 508);
+            this.Controls.Add(this.statusScore);
             this.Controls.Add(this.dragPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "gameForm";
+            this.statusScore.ResumeLayout(false);
+            this.statusScore.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.dragPanel.ResumeLayout(false);
             this.dragPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.StatusStrip statusScore;
+        private System.Windows.Forms.ToolStripStatusLabel lblPreviousBest;
+        private System.Windows.Forms.ToolStripStatusLabel lblCurrentScore;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnMinimize;

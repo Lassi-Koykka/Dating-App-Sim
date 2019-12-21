@@ -18,10 +18,12 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        //formin paikalliset muuttujat: peliohjeet, hiirenpainike alhaalla ja formin sijainti.
-        private string rules = 
-            "Swipe right on the profiles as fast as possible before the timer runs out, " +
-            "but be careful of ads because they activate a cooldown on swiping!";
+        //Muuttujat how to play ohjeita ja formin liikuttamista varten.
+        private string helpText = 
+            "Increase your score by swiping right on the profiles as fast as possible before the timer runs out, " +
+            "but be careful of ads because they activate a cooldown on swiping!\n\n" +
+            "You can control the game by clicking the like (green heart) and dislike (red cross) buttons on screen, " +
+            "or by using the left and right arrow keys on your keyboard";
         private bool mouseDown;
         private Point lastLocation;
         
@@ -49,7 +51,7 @@ namespace WindowsFormsApp1
         //Avaa messageboxin joka selittää kuinka peliä pelataan
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(rules, "How to play", MessageBoxButtons.OK);
+            MessageBox.Show(helpText, "How to play", MessageBoxButtons.OK);
         }
 
         //Eventit jolla tarkistetaan hiiren sijainti, painikkeen tila ja sallitaan mainMenu formin liikuttaminen päivittämällä formia.
