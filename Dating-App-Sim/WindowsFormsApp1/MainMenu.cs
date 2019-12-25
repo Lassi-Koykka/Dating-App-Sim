@@ -15,6 +15,14 @@ namespace WindowsFormsApp1
     {
         public MainMenu()
         {
+            if (backgroundColor.IsEmpty)
+            {
+                BackColor = Color.FromArgb(255, 255, 195);
+            }
+            else
+            {
+                BackColor = backgroundColor;
+            }
             InitializeComponent();
         }
 
@@ -26,24 +34,18 @@ namespace WindowsFormsApp1
             "or by using the left and right arrow keys on your keyboard";
         private bool mouseDown;
         private Point lastLocation;
-        
-        //sulkee ohjelman
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        private Color backgroundColor;
 
-        //Minimoi ikkunan
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        //Piilottaa MainMenu-formin ja avaa game-formin
+        #region Napit
+        //Sulkee MainMenu-formin ja avaa game-formin
         private void btnPlay_Click(object sender, EventArgs e)
         {
             this.Hide();
             gameForm gf = new gameForm();
+            if (!backgroundColor.IsEmpty)
+            {
+                gf.BackColor = backgroundColor;
+            }
             gf.ShowDialog();
             this.Close();
         }
@@ -53,7 +55,21 @@ namespace WindowsFormsApp1
         {
             MessageBox.Show(helpText, "How to play", MessageBoxButtons.OK);
         }
+        //Avaa Color dialogin jolla vaihtaa taustavärejä
+        private void btnBackgroundChange_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            DialogResult dr = colorDialog.ShowDialog();
+            backgroundColor = colorDialog.Color;
+            if (dr == DialogResult.OK)
+            {
+                BackColor = backgroundColor;
+            }
 
+        }
+        #endregion
+
+        #region formin liikuttaminen
         //Eventit jolla tarkistetaan hiiren sijainti, painikkeen tila ja sallitaan mainMenu formin liikuttaminen päivittämällä formia.
         public void dragPanel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -74,5 +90,21 @@ namespace WindowsFormsApp1
         {
             mouseDown = false;
         }
+        #endregion
+
+        #region Sulje ja minimoi nappien toiminnallisuus
+        //sulkee ohjelman
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //Minimoi ikkunan
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        #endregion
+
     }
 }

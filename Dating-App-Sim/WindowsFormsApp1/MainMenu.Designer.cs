@@ -34,8 +34,8 @@
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.dragPanel = new System.Windows.Forms.Panel();
+            this.btnChangeBackground = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.dragPanel.SuspendLayout();
             this.SuspendLayout();
@@ -113,18 +113,6 @@
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.Black;
-            this.btnSettings.Font = new System.Drawing.Font("Noto Mono", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(29, 259);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(169, 35);
-            this.btnSettings.TabIndex = 10;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = false;
-            // 
             // dragPanel
             // 
             this.dragPanel.BackColor = System.Drawing.Color.Transparent;
@@ -139,13 +127,26 @@
             this.dragPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseMove);
             this.dragPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseUp);
             // 
+            // btnChangeBackground
+            // 
+            this.btnChangeBackground.BackColor = System.Drawing.Color.Black;
+            this.btnChangeBackground.Font = new System.Drawing.Font("Noto Mono", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeBackground.ForeColor = System.Drawing.Color.White;
+            this.btnChangeBackground.Location = new System.Drawing.Point(29, 259);
+            this.btnChangeBackground.Name = "btnChangeBackground";
+            this.btnChangeBackground.Size = new System.Drawing.Size(169, 60);
+            this.btnChangeBackground.TabIndex = 10;
+            this.btnChangeBackground.Text = "Background Color";
+            this.btnChangeBackground.UseVisualStyleBackColor = false;
+            this.btnChangeBackground.Click += new System.EventHandler(this.btnBackgroundChange_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(231, 361);
-            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.btnChangeBackground);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.dragPanel);
@@ -167,7 +168,7 @@
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Panel dragPanel;
+        private System.Windows.Forms.Button btnChangeBackground;
     }
 }

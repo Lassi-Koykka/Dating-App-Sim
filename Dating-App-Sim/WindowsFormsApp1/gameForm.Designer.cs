@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
             this.statusScore = new System.Windows.Forms.StatusStrip();
-            this.lblPreviousBest = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblHighScore = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCurrentScore = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
@@ -46,25 +46,34 @@
             // 
             // statusScore
             // 
+            this.statusScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.statusScore.Font = new System.Drawing.Font("Noto Mono", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusScore.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblPreviousBest,
+            this.lblHighScore,
             this.lblCurrentScore});
-            this.statusScore.Location = new System.Drawing.Point(0, 486);
+            this.statusScore.Location = new System.Drawing.Point(0, 481);
             this.statusScore.Name = "statusScore";
-            this.statusScore.Size = new System.Drawing.Size(455, 22);
+            this.statusScore.Size = new System.Drawing.Size(455, 27);
             this.statusScore.TabIndex = 7;
-            this.statusScore.Text = "statusStrip1";
             // 
-            // lblPreviousBest
+            // lblHighScore
             // 
-            this.lblPreviousBest.Name = "lblPreviousBest";
-            this.lblPreviousBest.Size = new System.Drawing.Size(0, 17);
+            this.lblHighScore.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.lblHighScore.BorderStyle = System.Windows.Forms.Border3DStyle.Bump;
+            this.lblHighScore.Font = new System.Drawing.Font("Noto Mono", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHighScore.Name = "lblHighScore";
+            this.lblHighScore.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblHighScore.Size = new System.Drawing.Size(21, 22);
+            this.lblHighScore.Text = "-";
             // 
             // lblCurrentScore
             // 
+            this.lblCurrentScore.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.lblCurrentScore.BorderStyle = System.Windows.Forms.Border3DStyle.Bump;
+            this.lblCurrentScore.Font = new System.Drawing.Font("Noto Mono", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentScore.Name = "lblCurrentScore";
-            this.lblCurrentScore.Size = new System.Drawing.Size(118, 17);
-            this.lblCurrentScore.Text = "toolStripStatusLabel1";
+            this.lblCurrentScore.Size = new System.Drawing.Size(21, 22);
+            this.lblCurrentScore.Text = "-";
             // 
             // btnExit
             // 
@@ -204,8 +213,6 @@
 
         #endregion
         private System.Windows.Forms.StatusStrip statusScore;
-        private System.Windows.Forms.ToolStripStatusLabel lblPreviousBest;
-        private System.Windows.Forms.ToolStripStatusLabel lblCurrentScore;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnMinimize;
@@ -213,6 +220,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Panel dragPanel;
+        private System.Windows.Forms.ToolStripStatusLabel lblHighScore;
+        private System.Windows.Forms.ToolStripStatusLabel lblCurrentScore;
     }
 }
 

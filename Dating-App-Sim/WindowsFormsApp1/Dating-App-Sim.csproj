@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,7 +59,7 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pelaaja.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="gameForm.resx">
@@ -92,13 +93,19 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Dating sim logo.png" />
-    <EmbeddedResource Include="Pics\Profile Template v3-1%281%29.png" />
-    <EmbeddedResource Include="Pics\Profile Template v3-1.png%281%29.png" />
-    <EmbeddedResource Include="Pics\Profile Template v3-1.png%282%29.png" />
-    <EmbeddedResource Include="Pics\Profile Template v3-1.png%283%29.png" />
-    <EmbeddedResource Include="Pics\Profile Template v3-1.png-1.png" />
-    <EmbeddedResource Include="Pics\Profile Template v3-1.png-2.png" />
-    <EmbeddedResource Include="Pics\Profile Template v3-1.png.png" />
+    <EmbeddedResource Include="Pics\Profile1.png" />
+    <EmbeddedResource Include="Pics\Profile4.png" />
+    <EmbeddedResource Include="Pics\Profile5.png" />
+    <EmbeddedResource Include="Pics\Profile6.png" />
+    <EmbeddedResource Include="Pics\Profile2.png" />
+    <EmbeddedResource Include="Pics\Profile3.png" />
+    <EmbeddedResource Include="Pics\Profile7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pics\AD4.png" />
+    <Content Include="Pics\AD3.png" />
+    <Content Include="Pics\AD2.png" />
+    <Content Include="Pics\AD.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
