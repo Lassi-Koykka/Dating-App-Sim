@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class gameForm
+    partial class GameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.statusScore = new System.Windows.Forms.StatusStrip();
             this.lblHighScore = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCurrentScore = new System.Windows.Forms.ToolStripStatusLabel();

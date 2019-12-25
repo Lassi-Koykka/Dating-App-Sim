@@ -11,9 +11,9 @@ using System.IO;
 
 namespace WindowsFormsApp1
 {
-    public partial class gameForm : Form
+    public partial class GameForm : Form
     {
-        public gameForm()
+        public GameForm()
         {
             InitializeComponent();
             ListPics();

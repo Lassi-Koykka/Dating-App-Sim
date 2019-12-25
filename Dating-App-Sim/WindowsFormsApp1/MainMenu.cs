@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
         private void btnPlay_Click(object sender, EventArgs e)
         {
             this.Hide();
-            gameForm gf = new gameForm();
+            GameForm gf = new GameForm();
             if (!backgroundColor.IsEmpty)
             {
                 gf.BackColor = backgroundColor;
