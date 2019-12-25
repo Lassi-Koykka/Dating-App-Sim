@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace WindowsFormsApp1
+namespace DatingAppSim
 {
     public partial class GameForm : Form
     {
@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
 
         //GUI komponentit
         Font fontti = new Font("Noto Mono", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        Color backgroundColor;
 
         //Pelin muuttujat
         Random rnd = new Random();
@@ -197,7 +196,7 @@ namespace WindowsFormsApp1
             }
             catch
             {
-                statusScore.Items["lblHighScore"].Text = "High Score file not found";
+                statusScore.Items["lblHighScore"].Text = "No High Scores";
 
             }
         }

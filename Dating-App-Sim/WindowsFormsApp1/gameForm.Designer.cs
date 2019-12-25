@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace DatingAppSim
 {
     partial class GameForm
     {
@@ -160,7 +160,7 @@
             // 
             // picLogo
             // 
-            this.picLogo.Image = global::WindowsFormsApp1.Properties.Resources.Dating_sim_logo;
+            this.picLogo.Image = global::DatingAppSim.Properties.Resources.Dating_sim_logo;
             this.picLogo.Location = new System.Drawing.Point(-14, -5);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(65, 61);
