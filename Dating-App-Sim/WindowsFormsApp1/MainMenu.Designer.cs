@@ -35,9 +35,14 @@
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.dragPanel = new System.Windows.Forms.Panel();
-            this.btnChangeBackground = new System.Windows.Forms.Button();
+            this.btnShowSettings = new System.Windows.Forms.Button();
+            this.menuSettings = new System.Windows.Forms.MenuStrip();
+            this.toolStripSettingsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeBackgroundColorItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteHighScoresItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.dragPanel.SuspendLayout();
+            this.menuSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMinimize
@@ -127,18 +132,58 @@
             this.dragPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseMove);
             this.dragPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dragPanel_MouseUp);
             // 
-            // btnChangeBackground
+            // btnShowSettings
             // 
-            this.btnChangeBackground.BackColor = System.Drawing.Color.Black;
-            this.btnChangeBackground.Font = new System.Drawing.Font("Noto Mono", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeBackground.ForeColor = System.Drawing.Color.White;
-            this.btnChangeBackground.Location = new System.Drawing.Point(29, 259);
-            this.btnChangeBackground.Name = "btnChangeBackground";
-            this.btnChangeBackground.Size = new System.Drawing.Size(169, 60);
-            this.btnChangeBackground.TabIndex = 10;
-            this.btnChangeBackground.Text = "Background Color";
-            this.btnChangeBackground.UseVisualStyleBackColor = false;
-            this.btnChangeBackground.Click += new System.EventHandler(this.btnBackgroundChange_Click);
+            this.btnShowSettings.BackColor = System.Drawing.Color.Black;
+            this.btnShowSettings.Font = new System.Drawing.Font("Noto Mono", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowSettings.ForeColor = System.Drawing.Color.White;
+            this.btnShowSettings.Location = new System.Drawing.Point(29, 259);
+            this.btnShowSettings.Name = "btnShowSettings";
+            this.btnShowSettings.Size = new System.Drawing.Size(169, 60);
+            this.btnShowSettings.TabIndex = 10;
+            this.btnShowSettings.Text = "Show Settings";
+            this.btnShowSettings.UseVisualStyleBackColor = false;
+            this.btnShowSettings.Click += new System.EventHandler(this.btnShowSettings_Click);
+            // 
+            // menuSettings
+            // 
+            this.menuSettings.BackColor = System.Drawing.Color.Gainsboro;
+            this.menuSettings.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuSettings.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSettingsMenu});
+            this.menuSettings.Location = new System.Drawing.Point(0, 335);
+            this.menuSettings.Name = "menuSettings";
+            this.menuSettings.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuSettings.Size = new System.Drawing.Size(231, 26);
+            this.menuSettings.TabIndex = 12;
+            this.menuSettings.Visible = false;
+            // 
+            // toolStripSettingsMenu
+            // 
+            this.toolStripSettingsMenu.BackColor = System.Drawing.Color.Black;
+            this.toolStripSettingsMenu.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSettingsMenu.ForeColor = System.Drawing.Color.Magenta;
+            this.toolStripSettingsMenu.Name = "toolStripSettingsMenu";
+            this.toolStripSettingsMenu.Size = new System.Drawing.Size(71, 22);
+            this.toolStripSettingsMenu.Text = "Settings";
+            this.toolStripSettingsMenu.DropDownItems.Add(changeBackgroundColorItem);
+            this.toolStripSettingsMenu.DropDownItems.Add(deleteHighScoresItem);
+            // 
+            // changeBackgroundColorItem
+            // 
+            this.changeBackgroundColorItem.Name = "changeBackgroundColorItem";
+            this.changeBackgroundColorItem.Size = new System.Drawing.Size(218, 22);
+            this.changeBackgroundColorItem.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeBackgroundColorItem.Text = "Change Background Color";
+            this.changeBackgroundColorItem.Click += new System.EventHandler(this.BackgroundChangeItem_Click);
+            // 
+            // deleteHighScoresItem
+            // 
+            this.deleteHighScoresItem.Name = "deleteHighScoresItem";
+            this.deleteHighScoresItem.Size = new System.Drawing.Size(218, 22);
+            this.deleteHighScoresItem.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteHighScoresItem.Text = "Delete previous high scores";
+            this.deleteHighScoresItem.Click += new System.EventHandler(this.deleteHighScoresItem_Click);
             // 
             // MainMenu
             // 
@@ -146,18 +191,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(231, 361);
-            this.Controls.Add(this.btnChangeBackground);
+            this.Controls.Add(this.btnShowSettings);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.dragPanel);
             this.Controls.Add(this.picLogo);
+            this.Controls.Add(this.menuSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuSettings;
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.dragPanel.ResumeLayout(false);
+            this.menuSettings.ResumeLayout(false);
+            this.menuSettings.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -169,6 +219,10 @@
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Panel dragPanel;
-        private System.Windows.Forms.Button btnChangeBackground;
+        private System.Windows.Forms.Button btnShowSettings;
+        private System.Windows.Forms.MenuStrip menuSettings;
+        private System.Windows.Forms.ToolStripMenuItem toolStripSettingsMenu;
+        private System.Windows.Forms.ToolStripMenuItem changeBackgroundColorItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteHighScoresItem;
     }
 }
