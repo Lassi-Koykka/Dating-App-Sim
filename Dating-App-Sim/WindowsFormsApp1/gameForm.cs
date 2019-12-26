@@ -18,7 +18,6 @@ namespace DatingAppSim
             InitializeComponent();
             ListPics();
             ResetGame();
-            
         }
 
         //GUI komponentit
@@ -40,7 +39,7 @@ namespace DatingAppSim
         //Ikkunan liikuttamiseen tarvittavat muuttujat
         private bool mouseDown;
         private Point lastLocation;
-        
+
         #region Pelin resetoiminen ja aloitus       
         //Resetoidaan peli
         private void ResetGame()
@@ -52,8 +51,6 @@ namespace DatingAppSim
             timeLeft = 0;
             score = 0;
             CooldownTicks = 0;
-            
-
             updateCurrentScore();
 
             //Luodaan formin keskelle pelialue paneelin muodossa ja siihen lisätään alkuun nimilaatikko ja aloitusnappi
@@ -65,7 +62,7 @@ namespace DatingAppSim
             gamePanel.BackgroundImageLayout = ImageLayout.Stretch;
             gamePanel.BackColor = Color.Transparent;
             Controls.Add(gamePanel);
-            
+
             TextBox txtName = new TextBox();
             txtName.Name = "txtName";
             txtName.Font = fontti;
@@ -117,9 +114,11 @@ namespace DatingAppSim
         private void BtnStartGame_Click(object sender, EventArgs e)
         {
             Panel gamePanel = (Panel)Controls["gamePanel"];
+
             //Asetetaan pelaajan syöttämä nimi Pelaaja objektille.
             p.Name = gamePanel.Controls["txtName"].Text;
             updateCurrentScore();
+
             //Lisätään kontrollit
             gamePanel.Controls.Clear();
             changePic();
@@ -136,12 +135,14 @@ namespace DatingAppSim
             lblDislike.Size = gameBtnSize;
             lblDislike.Location = new Point(30, 250);
             lblLike.Location = new Point(155, 250);
+
             //eventit controlleihin
             lblLike.Click += lblLike_Click;
             lblDislike.Click += lblDislike_Click;
             gamePanel.KeyDown += GamePanel_KeyDown; ;
             gamePanel.Controls.Add(lblLike);
             gamePanel.Controls.Add(lblDislike);
+
             //Tehdään ajastimesta näkyvä ja käynnistetään se
             Controls["lblTime"].Visible = true;
             t.Start();
@@ -163,15 +164,14 @@ namespace DatingAppSim
                 statusScore.Items["lblCurrentScore"].Text = $"Current score: {score}";
             }
         }
-
-        //Yritetään lukea edelliset ennätykset Kahteen Labeliin mikäli kyseinen tiedosto on olemassa
+        //Yritetään lukea edelliset ennätykset Kahteen luotuun Labeliin mikäli kyseinen tiedosto on olemassa
         private void updateHighScores()
         {
             try
             {
                 Button btnStartGame = (Button)Controls["gamePanel"].Controls["btnStartGame"];
                 List<Player> HighScores = readHighScores();
-                statusScore.Items["lblHighScore"].Text ="Current best " + HighScores[0].ToString();
+                statusScore.Items["lblHighScore"].Text = "Current best " + HighScores[0].ToString();
                 int shownTopScores;
                 Label lblHighScores = new Label();
                 lblHighScores.Font = new Font("Noto Mono", 12.25F, FontStyle.Bold);
@@ -181,7 +181,7 @@ namespace DatingAppSim
                 lblHighScores.ForeColor = Color.DarkGoldenrod;
                 lblHighScores.Location = new Point(btnStartGame.Location.X, btnStartGame.Location.Y + btnStartGame.Height + 5);
                 Controls["gamePanel"].Controls.Add(lblHighScores);
-                if (HighScores.Count > 5)
+                if (HighScores.Count > 5) // Näytetään max 5 parasta scorea
                 {
                     shownTopScores = 5;
                 }
@@ -194,10 +194,9 @@ namespace DatingAppSim
                     lblHighScores.Text += $"{i + 1}. {HighScores[i].Name}: {HighScores[i].Score}\n";
                 }
             }
-            catch
+            catch // High scoreja ei löydetty
             {
                 statusScore.Items["lblHighScore"].Text = "No High Scores";
-
             }
         }
 
@@ -220,11 +219,10 @@ namespace DatingAppSim
         private void ListPics()
         {
             picPaths = Directory.GetFiles(Directory.GetCurrentDirectory().Replace(@"\bin\Debug", @"\pics")).ToList();
-            foreach(var path in picPaths)
+            foreach (var path in picPaths)
             {
                 pics.Add(Image.FromFile(path));
             }
-
         }
         //tarkista onko kuva sama kuin edellinen ja päivitä se
         private void changePic()
@@ -240,7 +238,6 @@ namespace DatingAppSim
         #endregion
 
         #region Nimi textboxin eventHandlerit
-
         //KeyPress tapahtuma nimi tekstikentässä joka varmistaa että käyttäjä ei lisää erikoismerkkejä tai välilyöntejä
         private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -251,10 +248,8 @@ namespace DatingAppSim
         private void TxtName_Enter(object sender, EventArgs e)
         {
             TextBox txtName = (TextBox)sender;
-
             txtName.Text = "";
             txtName.ForeColor = default;
-
         }
 
         //Tarkistaa että tekstikenttä ei ole tyhjä ja tekee start napista tällöin käytettävän
@@ -285,10 +280,8 @@ namespace DatingAppSim
         #endregion 
 
         #region Pelin ajastimien Tick eventit ja ajan päivitys
-
-
         //Pelin ajastimen tick event jossa vähennetään jäljellä olevasta ajasta ja lopetetaan peli kun aika loppuu
-        //Tämän jälkeen kysytään haluaako pelaaja pelata uudellee
+        //Tämän jälkeen kysytään haluaako pelaaja pelata uudelleen
         private void T_Tick(object sender, EventArgs e)
         {
             if (timePassed < TimeLimit)
@@ -297,11 +290,13 @@ namespace DatingAppSim
             }
             else
             {
+                //Game Over
                 t.Stop();
                 p.Score = score;
                 p.saveScore();
-                DialogResult dr = MessageBox.Show($"The time ran out\nYour score was {score} points!\n\nWould you like to play again?", "Game over!", MessageBoxButtons.YesNo);
-                if (dr == DialogResult.Yes)
+                DialogResult dr = MessageBox.Show($"The time ran out\nYour score was {score} points!\n\n" +
+                    $"Would you like to play again?", "Game over!", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes) //haluaa pelata uudelleen
                 {
                     Controls.RemoveByKey("gamePanel");
                     t.Tick -= T_Tick;
@@ -309,7 +304,7 @@ namespace DatingAppSim
                     Controls["lblTime"].Visible = false;
                     ResetGame();
                 }
-                else
+                else //Ei halua pelata uudelleen, palautetaan MainMenuun
                 {
                     this.Hide();
                     MainMenu mm = new MainMenu();
@@ -323,28 +318,28 @@ namespace DatingAppSim
         {
             Label lblTime = (Label)Controls["lblTime"];
             timeLeft = TimeLimit - timePassed;
-            lblTime.Text = "Time: " + timeLeft/1000;
+            lblTime.Text = "Time: " + timeLeft / 1000;
         }
         //CooldownTimerin Tick event
         private void CooldownTimer_Tick(object sender, EventArgs e)
         {
             Panel gamePanel = (Panel)Controls["gamePanel"];
             CooldownTicks++;
-            if(CooldownTicks >= 3)
+            if (CooldownTicks >= 3)
             {
                 gamePanel.Visible = true;
                 gamePanel.Focus();
                 cooldownTimer.Stop();
                 CooldownTicks = 0;
-
             }
         }
 
         #endregion
 
         #region pelin kontrollit
-
         //Pelin kontrollit ja niihin liittyvä tapahtumankäsittely jossa lisätään pisteitä
+        
+        //Onko gamePanelin tausta tällä hetkellä mainos? Jos ei ole niin lisää piste. Jos on, käynnistä cooldown
         private void lblLike_Click(object sender, EventArgs e)
         {
             Panel gamePanel = (Panel)Controls["gamePanel"];
@@ -364,12 +359,11 @@ namespace DatingAppSim
                 changePic();
             }
         }
-
+        //Onko gamePanelin tausta mainos? jos on niin vaihda kuva. Jos ei, vähennä piste
         private void lblDislike_Click(object sender, EventArgs e)
         {
             Panel gamePanel = (Panel)Controls["gamePanel"];
-            
-            if(gamePanel.BackgroundImage != pics[0] && gamePanel.BackgroundImage != pics[1] && gamePanel.BackgroundImage != pics[2] && gamePanel.BackgroundImage != pics[3])
+            if (gamePanel.BackgroundImage != pics[0] && gamePanel.BackgroundImage != pics[1] && gamePanel.BackgroundImage != pics[2] && gamePanel.BackgroundImage != pics[3])
             {
                 score--;
                 updateCurrentScore();
@@ -380,20 +374,19 @@ namespace DatingAppSim
                 changePic();
             }
         }
+        //Nuolinäppäinten toiminta
         private void GamePanel_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right)
             {
                 lblLike_Click(sender, e);
             }
-            else if(e.KeyCode == Keys.Left)
+            else if (e.KeyCode == Keys.Left)
             {
                 lblDislike_Click(sender, e);
             }
         }
-
         #endregion
-
 
         #region Ikkunan raahaamiseen ja maksimoi, minimoi ja sulje nappien toiminnallisuus 
 
@@ -405,23 +398,19 @@ namespace DatingAppSim
             mm.BackColor = BackColor;
             mm.ShowDialog();
             this.Close();
-
         }
-
         private void btnMaximize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
             this.btnMaximize.Click -= btnMaximize_Click;
             this.btnMaximize.Click += btnNormalize_Click;
         }
-
         private void btnNormalize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Normal;
             this.btnMaximize.Click -= btnNormalize_Click;
             this.btnMaximize.Click += btnMaximize_Click;
         }
-
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -433,7 +422,6 @@ namespace DatingAppSim
             mouseDown = true;
             lastLocation = e.Location;
         }
-
         public void dragPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
@@ -442,7 +430,6 @@ namespace DatingAppSim
                 this.Update();
             }
         }
-
         public void dragPanel_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
