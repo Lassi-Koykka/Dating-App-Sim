@@ -2,22 +2,15 @@
 WinForm project for a school course. 
 A satirical game about modern dating apps and the culture surrounding them.
 
-## Idea
-- An idle game, similiar to "Cookie clicker"
--  The player character is a lonely front-end developer looking for love on a popular dating app.
-- The player starts out spamming a "swipe right" button until he learns enough programming to create a bot that swipes right for him. More bots = faster swiping
-- 10% chance of getting a match
-	- After getting a match ...
-- Obstacles and dangers: 
-  - Accidentaly swiping right on ads (Cooldown)
-  - Running out of swipes (Cooldown timer)
-  - Running out of hope meter
+## Done
+- Primary gameplay loop
+- Controls
+- GUI
+- Saving scores
+- Some small extras
 
-## Requirements
-- **Good documentation**
-- Error handling
-- Writing and reading from files (_JSON?_)
-- Multiple forms
-- Components and event handling
-- Menus
-- Structs
+## To-do
+- More variables in gameplay
+- A secondary gameplay loop
+- Some upgrades?
+- More customization
